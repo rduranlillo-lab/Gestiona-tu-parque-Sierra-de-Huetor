@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Técnica - Parque Natural Sierra de Huétor</title>
+    <style>
+        :root {
+            --primary-color: #2c5e43; /* Verde bosque */
+            --secondary-color: #4a7c59; /* Verde claro */
+            --dark-color: #2f3e46; /* Gris oscuro / roca */
+            --light-bg: #f8f9fa; /* Fondo claro */
+            --accent-color: #d68c45; /* Tono tierra / arcilla */
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(rgba(44, 94, 67, 0.88), rgba(44, 94, 67, 0.95)), var(--primary-color);
+            color: white;
+            padding: 4rem 1.5rem;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .meta-info {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            padding-top: 1rem;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.6rem;
+        }
+
+        h3 {
+            color: var(--dark-color);
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Contenedor de Imágenes Globales */
+        .img-container {
+            margin: 1.5rem 0;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+        }
+
+        .section-img {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Estilo enfocado para que el mapa no se recorte por los lados */
+        .map-img {
+            object-fit: contain;
+            background-color: #ffffff;
+        }
+
+        .img-caption {
+            background-color: #2f3e46;
+            color: #fff;
+            font-size: 0.85rem;
+            padding: 0.7rem 1rem;
+            margin: 0;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .conduct-rules {
+            background-color: #fff3e0;
+            border: 2px dashed var(--accent-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .conduct-rules h3 {
+            color: #c67119;
+            margin-top: 0;
+        }
+
+        .conduct-rules ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .conduct-rules li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .conduct-rules li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #777;
+            font-size: 0.85rem;
+            background-color: #eef1f2;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr { display: block; }
+            thead tr { position: absolute; top: -9999px; left: -9999px; }
+            tr { border: 1px solid #ccc; margin-bottom: 10px; }
+            td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 10px; padding-top: 30px; }
+            td:before { position: relative; display: block; font-weight: bold; color: var(--primary-color); padding-bottom: 5px; }
+            .table-geo td:nth-of-type(1):before { content: "Parámetro:"; }
+            .table-geo td:nth-of-type(2):before { content: "Detalle:"; }
+            .table-fauna td:nth-of-type(1):before { content: "Grupo:"; }
+            .table-fauna td:nth-of-type(2):before { content: "Especies:"; }
+            .table-fauna td:nth-of-type(3):before { content: "Importancia:"; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Guía Técnica</h1>
+        <p>Parque Natural Sierra de Huétor — Proyecto de Investigación Estudio Piloto</p>
+        <div class="meta-info">
+            <strong>Equipo:</strong> Rodrigo Durán Lillo, Pablo Zarcos Zhou, Carlos Martínez Ríos, Sergio Peralta Martínez <br>
+            <strong>Fecha de Presentación:</strong> Mayo de 2026
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- SECCIÓN 1: IDENTIFICACIÓN CON MAPA -->
+        <section id="identificacion">
+            <h2>1. Ficha de Identificación y Localización Geográfica</h2>
+            
+            <div class="img-container">
+                <!-- Tu enlace del mapa de la Sierra de Huétor -->
+                <img class="section-img map-img" src="https://3.bp.blogspot.com/-jN-Fu1a49cY/WsomtNXbMkI/AAAAAAAAFD8/hDHxsRth9_4xOv8gT32Jv04od4j7E0ZQwCLcBGAs/s1600/Mapa%2Brecorrido_Sierra%2Bde%2BHuetor.png" alt="Mapa de recorrido de la Sierra de Huétor">
+                <p class="img-caption">Cartografía técnica: Detalle de accesos, rutas e hitos geográficos dentro del espacio protegido de la Sierra de Huétor.</p>
+            </div>
+
+            <p>El Parque Natural Sierra de Huétor destaca por su orografía de media montaña y su valor crítico en la recarga de acuíferos locales. A continuación se detallan las variables de ordenamiento territorial y magnitudes geográficas:</p>
+            
+            <table class="table-geo">
+                <thead>
+                    <tr>
+                        <th>Parámetro Técnico</th>
+                        <th>Detalle Geográfico y Administrativo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Nombre Oficial</strong></td><td>Parque Natural Sierra de Huétor</td></tr>
+                    <tr><td><strong>Provincia y Comunidad Autónoma</strong></td><td>Granada, Andalucía (España)</td></tr>
+                    <tr><td><strong>Municipios Integrados</strong></td><td>Alfacar, Beas de Granada, Cogollos Vega, Diezma, Huétor Santillán, Nívar y Víznar.</td></tr>
+                    <tr><td><strong>Superficie Regulada</strong></td><td>12.128 hectáreas</td></tr>
+                    <tr><td><strong>Fecha de Declaración Normativa</strong></td><td>18 de Julio 1989</td></tr>
+                    <tr><td><strong>Rango de Altitud</strong></td><td>Mínima: 1.100 metros | Máxima: 2.027 metros</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECCIÓN 2: PATRIMONIO CULTURAL -->
+        <section id="patrimonio">
+            <h2>2. Patrimonio Cultural, Histórico y Etnográfico</h2>
+            <p>La Sierra de Huétor no es únicamente un enclave de alto valor ambiental, sino un paisaje cultural modelado por la ocupación humana histórica que interactúa de manera directa con los recursos naturales del parque:</p>
+            
+            <h3>El Legado Hidráulico Andalusí: La Acequia de Aynadamar</h3>
+            <p>Construida en el siglo XI bajo la dinastía Zirí, la Acequia de Aynadamar representa un hito etnográfico de primer orden. Capta las aguas surgentes del acuífero calizo de Fuente Grande en el término municipal de Alfacar y las conduce a lo largo de varios kilómetros hasta abastecer al histórico barrio del Albaicín en Granada.</p>
+
+            <h3>Patrimonio Bélico e Histórico Contemporáneo</h3>
+            <p>Durante la Guerra Civil Española, el frente de Granada se estabilizó sobre los relieves abruptos de este parque natural. Como consecuencia, hoy se conserva un complejo entramado de arquitectura militar consolidada en roca: búnkeres, puestos de ametralladora, polvorines y pasillos de trincheras excelentemente conservados en las áreas de Llanos del Fraile, el Cerro de la Yedra y las inmediaciones de Víznar.</p>
+        </section>
+
+        <!-- SECCIÓN 3: MEDIO FÍSICO (IMAGEN DE LA SIERRA) -->
+        <section id="medio-fisico">
+            <h2>3. Medio Físico: Geología, Clima e Hidrografía</h2>
+            
+            <div class="img-container">
+                <!-- Tu enlace real de la Sierra de Huétor -->
+                <img class="section-img" src="https://www.granadadigital.es/wp-content/uploads/2018/07/parque-natural-sierra-de-huetor.jpg" alt="Parque Natural Sierra de Huétor">
+                <p class="img-caption">Panorámica real de la Sierra de Huétor (Granada), mostrando la transición vegetal de coníferas y sus formaciones orográficas.</p>
+            </div>
+
+            <h3>3.1. Litología y Modelado Kárstico</h3>
+            <p>Desde un enfoque geológico, el parque se integra en los Sistemas Béticos, específicamente en las zonas internas y subbéticas. El sustrato dominante está compuesto por rocas carbonatadas (calizas y dolomías) del Triásico y Jurásico. La acción continuada de la disolución química del agua cargada de CO₂ sobre la roca calcárea (proceso de karstificación) ha generado un relieve accidentado compuesto por tajos vertiginosos, lapiaces y simas profundas.</p>
+
+            <h3>3.2. Dinámica Hidrogeológica y Climatología</h3>
+            <p>El comportamiento hídrico del espacio está subordinado a su naturaleza permeable. Las formaciones calizas actúan como una inmensa esponja que absorbe la precipitación invernal, recargando un complejo acuífero subterráneo. Este agua emerge posteriormente en las zonas bajas a través de manantiales de gran caudal, destacando la Fuente de la Teja y Fuente Grande.</p>
+        </section>
+
+        <!-- SECCIÓN 4: BIODIVERSIDAD (IMAGEN DEL PIQUITUERTO) -->
+        <section id="biodiversidad">
+            <h2>4. Biodiversidad: Análisis de las Comunidades Bióticas</h2>
+            
+            <div class="img-container">
+                <!-- Tu enlace real del Piquituerto -->
+                <img class="section-img" src="https://tse3.mm.bing.net/th/id/OIP.pg1wgSJywaBtX_cg5xw_1wHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ejemplar de Piquituerto común">
+                <p class="img-caption">Muestra ornitológica: Ejemplar macho de Piquituerto común (Loxia curvirostra), ave forestal bioindicadora muy característica de los pinares del parque.</p>
+            </div>
+
+            <h3>4.1. Formaciones Vegetales y Flora Protegida</h3>
+            <ul>
+                <li><strong>Bosque Autóctono Mediterráneo:</strong> Masas densas de encinar en las solanas y quejigares en los valles húmedos.</li>
+                <li><strong>Masas de Repoblación:</strong> Introducción de coníferas a mediados del siglo XX como el pino carrasco, pino laricio y pino resinero, indispensables para aves especialistas de acículas.</li>
+            </ul>
+
+            <h3>4.2. Comunidades Faunísticas</h3>
+            <table class="table-fauna">
+                <thead>
+                    <tr>
+                        <th>Grupo Taxonómico</th>
+                        <th>Especies Clave Presentes</th>
+                        <th>Nicho / Importancia Científica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Mamíferos</strong></td>
+                        <td>Cabra montés (<em>Capra pyrenaica</em>), jabalí, zorro común, jineta y gato montés.</td>
+                        <td>Estudio del gran herbívoro de cumbre adaptado al relieve kárstico.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aves Forestales</strong></td>
+                        <td>Piquituerto (<em>Loxia curvirostra</em>), carbonero garrapinos, mito común y arrendajo.</td>
+                        <td>Indicadores cualitativos de la salud de las masas forestales autóctonas y de repoblación.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECCIÓN 5: INFRAESTRUCTURAS -->
+        <section id="infraestructuras">
+            <h2>5. Infraestructuras de Uso Público y Sostenibilidad</h2>
+            <h3>Centro de Visitantes 'Puerto de la Lobo' (Víznar)</h3>
+            <p>Constituye el punto de recepción y el eje de la interpretación ambiental del parque. Alberga una sala expositiva permanente que detalla la interrelación entre la roca caliza, el agua de los acuíferos y el desarrollo de la vida.</p>
+
+            <div class="conduct-rules">
+                <h3>Código Obligatorio de Conducta Ambiental para el Visitante</h3>
+                <ul>
+                    <li>Prohibición absoluta del uso del fuego en todo el perímetro del parque.</li>
+                    <li>Gestión obligatoria de residuos: todo visitante debe retirar su basura.</li>
+                    <li>Obligación de permanecer en los senderos señalizados para evitar procesos de erosión.</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        Concurso Público: Proyecto de Investigación Estudio Piloto — Parque Natural Sierra de Huétor (Granada). Mayo de 2026.
+    </footer>
+
+</body>
+</html>
